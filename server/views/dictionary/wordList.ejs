@@ -38,10 +38,10 @@
                                 <div class="text-center mt-3">
                                     <% if(typeof displayName === 'string' && displayName) { %>
                                         <a href="/dictionary/editWord/<%= words[count]._id %>" class="btn btn-info btn-sm">
-                                            <i class="fas fa-edit"></i> 
+                                            <i class="fa-regular fa-pen-to-square"></i> 
                                         </a>
                                         <button class="btn btn-danger btn-sm ml-2" onclick="confirmDeleteWord('<%= words[count]._id %>')">
-                                            <i class="fas fa-trash-alt"></i> 
+                                            <i class="fa-solid fa-trash"></i> 
                                         </button>
                                     <% } %>
                                 </div>
