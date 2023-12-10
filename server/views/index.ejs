@@ -3,17 +3,17 @@
 
 <div class="container-fluid d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #000; color: #0f4c75;">
     <div class="text-center border-white rounded p-5" style="border: 2px solid #0f4c75;"> <!-- Changed class to 'rounded' for curved edges -->
-        <i class="fas fa-book fa-7x fa-bounce mb-5 text-white" style="color: #0f4c75 !important;"></i> <!-- Changed icon to a book icon -->
+        <i class="fas fa-book-open fa-7x fa-bounce mb-5 text-white" style="color: #0f4c75 !important;"></i> <!-- Changed icon to an open book -->
         <% if(displayName) { %>
             <h1 class="mb-3">Welcome, <%= displayName %>!</h1>
             <p class="lead mb-4">Expand Your Vocabulary!</p>
-            <a href="/dictionary/wordList" class="btn btn-primary btn-sm rounded-pill px-5 py-3" style="background-color: #0f4c75; color: #000; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Explore Words</a>
+            <a href="/dictionary/wordList" class="btn btn-primary btn-lg rounded-pill px-5 py-3" style="background-color: #0f4c75; color: #000; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Explore Words</a>
         <% } else { %>
             <h1 class="mb-3">Welcome to WordVault</h1>
             <p class="lead mb-4">Expand Your Vocab!</p>
-            <a href="/dictionary/wordList" class="btn btn-primary btn-sm rounded-pill px-5 py-3 mb-3" style="background-color: #0f4c75; color: #000; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">View Words</a>
+            <a href="/dictionary/wordList" class="btn btn-primary btn-lg rounded-pill px-5 py-3 mb-3" style="background-color: #0f4c75; color: #000; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">View Words</a>
             <p>OR</p>
-            <a href="/login" class="btn btn-outline-primary btn-sm rounded-pill px-5 py-3 ml-3 mb-3" style="border-color: #0f4c75; color: #0f4c75; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Log In</a>
+            <a href="/login" class="btn btn-outline-primary btn-lg rounded-pill px-5 py-3 ml-3 mb-3" style="border-color: #0f4c75; color: #0f4c75; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Log In</a>
         <% } %>
     </div>
 </div>
