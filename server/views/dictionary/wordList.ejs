@@ -15,23 +15,33 @@
                 </div>
             <% } %>
 
+             <!-- Display the count of cards -->
+             <p style="color: #fff;">Number of Cards: <%= words.length %></p>
+             
             <div class="row">
                 <% for(let count=0; count < words.length; count++) { %>
                     <div class="col-md-6">
-                        <div class="card mb-4" style="background-color: #0f4c75; color: #fff;">
+                        <div class="card mb-4" style="background-color: #0f4c75; color: #fff; position: relative;">
                             <div class="card-header bg-dark text-white">
-                                <h5 class="card-title" style="font-weight: 700;"><%= words[count].word %></h5>
+                                <h5 class="card-title" style="font-weight: 700;">
+                                    <%= words[count].word %>
+                                    <span class="card-number" style="position: absolute; top: 10px; right: 10px; font-size: 14px; font-weight: bold;">
+                                        <%= count + 1 %>
+                                    </span>
+                                </h5>
                             </div>
                             <div class="card-body">
-                                <p class="card-text font-weight-bold"><strong>Meaning:</strong> <%= words[count].meaning %></p>
-                                <p class="card-text"><strong>Examples:</strong> <%= words[count].examples %></p>
+                                <p class="card-text font-weight-bold" style="color: black; font-size: large;">Meaning:</p>
+                                <p class="card-text" style="color: black;"><%= words[count].meaning %></p>
+                                <p class="card-text font-weight-bold" style="color: black; font-size: large;">Examples:</p>
+                                <p class="card-text" style="color: black;"><%= words[count].examples %></p>
                                 <div class="text-center mt-3">
                                     <% if(typeof displayName === 'string' && displayName) { %>
                                         <a href="/dictionary/editWord/<%= words[count]._id %>" class="btn btn-info btn-sm">
-                                            <i class="fas fa-edit"></i> Edit
+                                            <i class="fas fa-edit"></i> 
                                         </a>
                                         <button class="btn btn-danger btn-sm ml-2" onclick="confirmDeleteWord('<%= words[count]._id %>')">
-                                            <i class="fas fa-trash-alt"></i> Delete
+                                            <i class="fas fa-trash-alt"></i> 
                                         </button>
                                     <% } %>
                                 </div>
@@ -48,11 +58,16 @@
 <%- include ../partials/footer.ejs %>
 
 <style>
-    body{
+    body {
         background-color: black;
     }
+
     .btn {
         font-family: 'Fugaz One', cursive;
+    }
+
+    .card-number {
+        color: white;
     }
 </style>
 

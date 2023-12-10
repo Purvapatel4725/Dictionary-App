@@ -2,40 +2,39 @@
 <%- include ../partials/main_nav.ejs %>
 
 <div class="container" style="background-color: black; color: white;">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5">
         <div class="col-lg-8 mt-5">
             <div class="card shadow-lg p-4" style="background-color: #0f4c75;">
                 <h1 class="card-title text-center mb-4">Edit Word</h1>
                 <form method="POST" action="/dictionary/editWord/<%= word._id %>">
                     <div class="mb-3">
-                        <label for="wordTextField" class="form-label">Word</label>
+                        <label for="wordTextField" class="form-label" style="color: black; font-family: 'Fugaz One', cursive">Word</label>
                         <input type="text" class="form-control" id="wordTextField"
                             placeholder="Enter the Word" maxlength="50" name="word"
                             value="<%= word.word %>" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="meaningTextArea" class="form-label">Meaning</label>
+                        <label for="meaningTextArea" class="form-label" style="color: black; font-family: 'Fugaz One', cursive">Meaning</label>
                         <textarea class="form-control" id="meaningTextArea"
                             placeholder="Enter the Meaning of the Word" name="meaning" required
                             style="height: 150px;"><%= word.meaning %></textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label for="examplesTextArea" class="form-label">Examples</label>
+                        <label for="examplesTextArea" class="form-label" style="color: black; font-family: 'Fugaz One', cursive">Examples</label>
                         <textarea class="form-control" id="examplesTextArea"
                             placeholder="Enter Examples for the Word" name="examples"
                             style="height: 150px;"><%= word.examples %></textarea>
                     </div>
 
                     <div class="d-grid gap-2">
-                        <button class="btn btn-light" type="submit" style="background-color: black; color: white;">
+                        <button class="btn btn-light" type="submit" style="background-color: grey; color: white; font-family: 'Fugaz One', cursive;">
                             <i class="fas fa-edit"></i> Update
                         </button>
-
-                        <a href="/dictionary/wordList" class="btn btn-secondary">
-                            <i class="fas fa-undo"></i> Cancel
-                        </a>
+                        <button class="btn btn-light" type="button" style="background-color: grey; color: white; font-family: 'Fugaz One', cursive" onclick="cancelAddWord()">
+                            <i class="fas fa-times-circle"></i> Cancel
+                        </button>
                     </div>
                 </form>
             </div>
@@ -48,7 +47,7 @@
 
 <style>
     input, textarea{
-        background-color: grey !important;
+        background-color: black !important;
     }
     .form-control::placeholder{
         color: #0f4c75;
@@ -58,7 +57,7 @@
     }
     #wordTextField::placeholder,
     #meaningTextArea::placeholder,
-    #examplesTextArea::placeholder {
+    #examplesTextArea::placeholder, label {
         font-family: 'Fugaz One', cursive;
         color: #0f4c75;
     }
@@ -69,6 +68,10 @@
 
     .btn {
         border-radius: 8px;
+    }
+    #examplesTextArea, #meaningTextArea, #wordTextField{
+        color: white;
+        font-family: 'Fugaz One', cursive;
     }
 </style>
 
@@ -84,4 +87,10 @@
     const preFilledValueWord = "<%= word.word %>";
     const charCountWord = document.getElementById('charCountWord');
     charCountWord.textContent = `${preFilledValueWord.length}/50`;
+</script>
+<script>
+    function cancelAddWord() {
+        // Redirect or perform any cancel action here
+        window.location.href = "/dictionary/wordList"; // Redirect to the homepage as an example
+    }
 </script>

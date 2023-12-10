@@ -4,28 +4,28 @@
 <main class="container pb-5" style="background-color: black; color: white;">
     <div class="row justify-content-center">
         <div class="col-lg-8 mt-5">
-            <div class="card shadow-lg p-4" style="background-color: #0f4c75;">
+            <div class="card shadow-lg p-4" style="background-color: #0f4c75; color: black;">
                 <h1 class="card-title text-center mb-4">Add New Word</h1>
                 <form method="POST" action="/dictionary/addWord">
                     <div class="mb-3">
-                        <label for="word" class="form-label">Word</label>
+                        <label for="word" class="form-label" style="color: white; font-family: 'Fugaz One', cursive">Word</label>
                         <input type="text" class="form-control" id="word" placeholder="Enter the word" name="word" required>
                     </div>
                     <div class="mb-3">
-                        <label for="meaning" class="form-label">Meaning</label>
-                        <textarea class="form-control" id="meaning" placeholder="Enter the meaning" name="meaning" required style="height: 150px;"></textarea>
+                        <label for="meaning" class="form-label" style="color: white; font-family: 'Fugaz One', cursive">Meaning</label>
+                        <textarea class="form-control" id="meaning" placeholder="Enter the meaning" name="meaning" style="height: 150px;"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="examples" class="form-label">Examples</label>
-                        <textarea class="form-control" id="examples" placeholder="Enter examples" name="examples" required style="height: 150px;"></textarea>
+                        <label for="examples" class="form-label" style="color: white; font-family: 'Fugaz One', cursive">Examples</label>
+                        <textarea class="form-control" id="examples" placeholder="Enter examples" name="examples"  style="height: 150px;"></textarea>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-light" type="submit" style="background-color: black; color: white;">
+                        <button class="btn btn-light" type="submit" style="background-color: grey; color: white; font-family: 'Fugaz One', cursive">
                             <i class="fas fa-plus"></i> Add Word
                         </button>
-                        <a href="/dictionary/wordList" class="btn btn-secondary">
-                            <i class="fas fa-undo"></i> Cancel
-                        </a>
+                        <button class="btn btn-light" type="button" style="background-color: grey; color: white; font-family: 'Fugaz One', cursive" onclick="cancelAddWord()">
+                            <i class="fas fa-times-circle"></i> Cancel
+                        </button>
                     </div>
                 </form>
             </div>
@@ -38,7 +38,7 @@
 
 <style>
     input, textarea{
-        background-color: grey !important;
+        background-color: black !important;
     }
     body {
         background-color: black;
@@ -60,7 +60,15 @@
         color: #0f4c75 !important;
         font-family: 'Fugaz One', cursive !important;
     }
-
+    #meaning, #examples, #word{
+        color: white !important;
+        font-family: 'Fugaz One', cursive !important;
+    }
 </style>
-
+<script>
+    function cancelAddWord() {
+        // Redirect or perform any cancel action here
+        window.location.href = "/dictionary/wordList"; // Redirect to the homepage as an example
+    }
+</script>
 
