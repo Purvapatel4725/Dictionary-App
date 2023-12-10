@@ -1,38 +1,33 @@
 <%- include ../partials/header.ejs %>
 <%- include ../partials/main_nav.ejs %>
 
-<main class="container pb-5" style="color: #fff;">
-    <div class="row">
-        <div class="offset-md-1 col-md-10 text-center">
-            <h1 class="text-center"><%= title %></h1>
-            <div class="card mt-5" style="background-color: #000; color: #fff;">
-                <div class="card-header bg-dark text-white">
-                    <h3 class="text-center">Add New Word</h3>
-                </div>
-                <div class="card-body mb-5">
-                    <form method="POST" action="/dictionary/addWord">
-                        <div class="mb-4 position-relative">
-                            <label for="word" class="form-label">Word</label>
-                            <input type="text" class="form-control" id="word" placeholder="Enter the word" name="word" required style="background-color: #333; color: #fff;">
-                        </div>
-                        <div class="mb-4 position-relative">
-                            <label for="meaning" class="form-label">Meaning</label>
-                            <textarea class="form-control" id="meaning" placeholder="Enter the meaning" name="meaning" required style="background-color: #333; color: #fff;"></textarea>
-                        </div>
-                        <div class="mb-4 position-relative">
-                            <label for="examples" class="form-label">Examples</label>
-                            <textarea class="form-control" id="examples" placeholder="Enter examples" name="examples" required style="background-color: #333; color: #fff;"></textarea>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary" type="submit">
-                                <i class="fas fa-plus"></i> Add Word
-                            </button>
-                            <a href="/dictionary/wordList" class="btn btn-warning">
-                                <i class="fas fa-undo"></i> Cancel
-                            </a>
-                        </div>
-                    </form>
-                </div>
+<main class="container pb-5" style="background-color: black; color: white;">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 mt-5">
+            <div class="card shadow-lg p-4" style="background-color: #0f4c75;">
+                <h1 class="card-title text-center mb-4">Add New Word</h1>
+                <form method="POST" action="/dictionary/addWord">
+                    <div class="mb-3">
+                        <label for="word" class="form-label">Word</label>
+                        <input type="text" class="form-control" id="word" placeholder="Enter the word" name="word" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="meaning" class="form-label">Meaning</label>
+                        <textarea class="form-control" id="meaning" placeholder="Enter the meaning" name="meaning" required style="height: 150px;"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="examples" class="form-label">Examples</label>
+                        <textarea class="form-control" id="examples" placeholder="Enter examples" name="examples" required style="height: 150px;"></textarea>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-light" type="submit" style="background-color: black; color: white;">
+                            <i class="fas fa-plus"></i> Add Word
+                        </button>
+                        <a href="/dictionary/wordList" class="btn btn-secondary">
+                            <i class="fas fa-undo"></i> Cancel
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -40,3 +35,32 @@
 
 <%- include ../partials/bottom_nav.ejs %>
 <%- include ../partials/footer.ejs %>
+
+<style>
+    input, textarea{
+        background-color: grey !important;
+    }
+    body {
+        background-color: black;
+    }
+    #word::placeholder,
+    #meaning::placeholder,
+    #examples::placeholder {
+        color: white;
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    .btn {
+        border-radius: 8px;
+    }
+    .form-control::placeholder{
+        color: #0f4c75 !important;
+    }
+</style>
+
+<script>
+    // Script for any additional functionality can be added here if needed
+</script>
