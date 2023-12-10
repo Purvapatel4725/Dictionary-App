@@ -1,0 +1,63 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+
+<main class="container pb-5" style="color: #fff;">
+    <div class="row">
+        <div class="offset-md-1 col-md-10 text-center">
+            <h1 class="animated-heading" style="margin-top: 30px; color: #000;">Dictionary Words</h1>
+            <div class="mb-4"></div>
+
+                <% if(typeof displayName === 'string' && displayName) { %>
+                <div class="text-center mt-4">
+                    <a href="/dictionary/addWord" class="btn btn-outline-light btn-lg rounded-pill" role="button" style="background-color: black; border-color: black; transition: all 0.3s ease-in-out;">
+                        <i class="fas fa-plus-circle" style="margin-right: 10px; color: #fff;"></i> Add Word
+                    </a>
+                </div>
+            <% } %>
+            <div class="row">
+                <% for(let count=0; count < words.length; count++) { %>
+                    <div class="col-md-6">
+                        <div class="card mb-4" style="background-color: #000; color: #fff;">
+                            <div class="card-header bg-dark text-white">
+                                <h5 class="card-title" style="font-weight: 700;">Word <%= count + 1 %></h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text font-weight-bold"><strong>Word:</strong> <%= words[count].word %></p>
+                                <p class="card-text font-weight-bold"><strong>Meaning:</strong> <%= words[count].meaning %></p>
+                                <p class="card-text"><strong>Examples:</strong> <%= words[count].examples %></p>
+                                <div class="text-center mt-3">
+                                    <% if(typeof displayName === 'string' && displayName) { %>
+                                    <a href="/dictionary/editWord/<%= words[count]._id %>" class="btn btn-info btn-sm">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                    <button class="btn btn-danger btn-sm ml-2" onclick="confirmDeleteWord('<%= words[count]._id %>')">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </button>
+
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include ../partials/bottom_nav.ejs %>
+<%- include ../partials/footer.ejs %>
+
+<style>
+    .btn {
+        font-family: 'Nova Square', sans-serif;
+    }
+</style>
+<script>
+    function confirmDeleteWord(wordId) {
+        if (confirm("Are you sure you want to delete this word?")) {
+            // If confirmed, redirect to the delete route with the word's ID
+            window.location.href = "/dictionary/deleteWord/" + wordId;
+        }
+    }
+</script>

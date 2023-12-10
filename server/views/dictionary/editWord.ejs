@@ -1,0 +1,91 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card mt-5" style="background-color: #000; color: #fff;">
+                <div class="card-header" style="background-color: #000; color: #fff;">
+                    <h1 class="text-center">
+                        Edit Word
+                    </h1>
+                </div>
+                <div class="card-body mb-5" style="filter: grayscale(100%);">
+                    <form method="POST" action="/dictionary/editWord/<%= word._id %>">
+                        <div class="mb-4 position-relative">
+                            <label for="wordTextField" class="form-label" style="color: #fff;">Word</label>
+                            <input type="text" class="form-control" id="wordTextField"
+                                placeholder="Enter the Word" maxlength="50" name="word"
+                                value="<%= word.word %>" required
+                                style="background-color: #333; color: #fff;">
+                            <span id="charCountWord" class="text-muted position-absolute"
+                                style="bottom: -25px; left: 5px; color: #fff;">0/50</span>
+                        </div>
+
+                        <div class="mb-4 position-relative">
+                            <label for="meaningTextArea" class="form-label" style="color: #fff;">Meaning</label>
+                            <textarea class="form-control" id="meaningTextArea"
+                                placeholder="Enter the Meaning of the Word" name="meaning" required
+                                style="background-color: #333; color: #fff;"><%= word.meaning %></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="examplesTextArea" class="form-label" style="color: #fff;">Examples</label>
+                            <textarea class="form-control" id="examplesTextArea"
+                                placeholder="Enter Examples for the Word" name="examples"
+                                style="background-color: #333; color: #fff;"><%= word.examples %></textarea>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-edit"></i> Update
+                            </button>
+
+                            <a href="/dictionary/wordList" class="btn btn-warning">
+                                <i class="fas fa-undo"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ../partials/bottom_nav.ejs %>
+<%- include ../partials/footer.ejs %>
+
+<style>
+    #meaningTextArea,
+    #examplesTextArea {
+        height: 250px;
+    }
+
+    #wordTextField::placeholder,
+    #meaningTextArea::placeholder,
+    #examplesTextArea::placeholder {
+        color: grey;
+    }
+
+    #charCountWord {
+        color: white !important;
+    }
+
+    .card-body {
+        font-family: 'Nova Square', sans-serif;
+    }
+</style>
+
+<script>
+    const wordField = document.getElementById('wordTextField');
+    const charCountWord = document.getElementById('charCountWord');
+
+    wordField.addEventListener('input', function () {
+        const count = this.value.length;
+        charCountWord.textContent = `${count}/50`;
+    });
+
+    // Update character count on page load if there's a pre-filled value
+    const preFilledValueWord = "<%= word.word %>";
+    charCountWord.textContent = `${preFilledValueWord.length}/50`;
+</script>
