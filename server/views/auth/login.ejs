@@ -1,12 +1,13 @@
 <%- include ../partials/header.ejs %>
 <%- include ../partials/main_nav.ejs %>
 
-<main class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh; background: linear-gradient(to bottom, #f5f5f5, white);">
+<main class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh; background: linear-gradient(to bottom, black, black
+);">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
-            <div class="col-lg-6 col-md-8 col-sm-10 col-12 login-box card mt-1 shadow" style="background-color: #000; color: #fff;">
-                <div class="col-lg-12 login-title" style="color: #0f4c75;">
+            <div class="col-lg-6 col-md-8 col-sm-10 col-12 login-box card mt-1 shadow" style="background-color: #0f4c75; color: #fff;">
+                <div class="col-lg-12 login-title" style="color: white;">
                     Log in
                 </div>
 
@@ -27,7 +28,7 @@
                             </div>
                             <div class="col-lg-6 login-btm login-button">
                                 <button type="submit" class="btn btn-outline-primary" style="border-color: #fff; color: #0f4c75;">LOGIN</button>
-                                <p class="text-center mt-5 text-center" style="color: #777;">Don't have an account? <a href="/register" style="color: #0f4c75; text-decoration: none; text-decoration: underline;">Register Here</a></p>
+                                <p class="text-center mt-5 text-center" style="color: #777;">Don't have an account? <a href="/register" style="color: black; text-decoration: none; text-decoration: underline;">Register Here</a></p>
                             </div>
                         </div>
                     </form>
@@ -94,7 +95,7 @@
 
     .btn-outline-primary {
         border-color: #0f4c75;
-        color: #0f4c75;
+        color: #fff !important;
         border-radius: 0px;
         font-weight: bold;
         letter-spacing: 1px;
@@ -102,9 +103,9 @@
     }
 
     .btn-outline-primary:hover {
-        background-color: #0f4c75;
+        background-color: black;
         right: 0px;
-        color: #000;
+        color: #fff;
     }
 
     .login-btm {
