@@ -4,7 +4,7 @@
 <main class="container pb-5" style="color: #fff; background-color: black;">
     <div class="row">
         <div class="offset-md-1 col-md-10 text-center">
-            <h1 class="animated-heading" style="margin-top: 30px; color: #0f4c75;">Dictionary Words</h1>
+            <h1 class="animated-heading" style="margin-top: 30px; color: #0f4c75;"><i class="fa-solid fa-d fa-bounce"></i><i class="fa-solid fa-i"></i><i class="fa-solid fa-c"></i><i class="fa-solid fa-t"></i><i class="fa-solid fa-i"></i><i class="fa-solid fa-o fa-bounce"></i><i class="fa-solid fa-n"></i><i class="fa-solid fa-a"></i><i class="fa-solid fa-r"></i><i class="fa-solid fa-y"></i> <i class="fa-solid fa-w"></i><i class="fa-solid fa-o fa-bounce"></i><i class="fa-solid fa-r"></i><i class="fa-solid fa-d fa-bounce"></i><i class="fa-solid fa-s"></i></h1>
             <div class="mb-4"></div>
 
             <% if(typeof displayName === 'string' && displayName) { %>
@@ -43,7 +43,6 @@
                                         <button class="btn btn-danger btn-sm ml-2 custom-btn" onclick="confirmDeleteWord('<%= words[count]._id %>')">
                                             <i class="fa-solid fa-trash"></i> 
                                         </button>
-                                        
                                     <% } %>
                                 </div>
                             </div>

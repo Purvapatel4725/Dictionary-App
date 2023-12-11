@@ -8,21 +8,21 @@
                 <h1 class="card-title text-center mb-4">Edit Word</h1>
                 <form method="POST" action="/dictionary/editWord/<%= word._id %>">
                     <div class="mb-3">
-                        <label for="wordTextField" class="form-label" style="color: black; font-family: 'Cinzel Decorative', sans-serif;">Word</label>
+                        <label for="wordTextField" class="form-label" style="color: black; font-family: 'Cinzel Decorative', sans-serif;">Word:</label>
                         <input type="text" class="form-control" id="wordTextField"
                             placeholder="Enter the Word" maxlength="50" name="word"
                             value="<%= word.word %>" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="meaningTextArea" class="form-label" style="color: black; font-family: 'Cinzel Decorative', sans-serif;">Meaning</label>
+                        <label for="meaningTextArea" class="form-label" style="color: black; font-family: 'Cinzel Decorative', sans-serif;">Meaning:</label>
                         <textarea class="form-control" id="meaningTextArea"
                             placeholder="Enter the Meaning of the Word" name="meaning" required
                             style="height: 150px;"><%= word.meaning %></textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label for="examplesTextArea" class="form-label" style="color: black; font-family: 'Cinzel Decorative', sans-serif;">Examples</label>
+                        <label for="examplesTextArea" class="form-label" style="color: black; font-family: 'Cinzel Decorative', sans-serif;">Examples:</label>
                         <textarea class="form-control" id="examplesTextArea"
                             placeholder="Enter Examples for the Word" name="examples"
                             style="height: 150px;"><%= word.examples %></textarea>
@@ -71,7 +71,10 @@
     }
     #examplesTextArea, #meaningTextArea, #wordTextField{
         color: white;
-font-family: 'Cinzel Decorative', sans-serif;
+    font-family: 'Cinzel Decorative', sans-serif;
+    }
+    label{
+        color: white !important;
     }
 </style>
 
