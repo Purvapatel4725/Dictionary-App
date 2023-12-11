@@ -37,12 +37,13 @@
                                 <p class="card-text" style="color: black;"><%= words[count].examples %></p>
                                 <div class="text-center mt-3">
                                     <% if(typeof displayName === 'string' && displayName) { %>
-                                        <a href="/dictionary/editWord/<%= words[count]._id %>" class="btn btn-info btn-sm">
+                                        <a href="/dictionary/editWord/<%= words[count]._id %>" class="btn btn-info btn-sm custom-btn">
                                             <i class="fa-regular fa-pen-to-square"></i> 
                                         </a>
-                                        <button class="btn btn-danger btn-sm ml-2" onclick="confirmDeleteWord('<%= words[count]._id %>')">
+                                        <button class="btn btn-danger btn-sm ml-2 custom-btn" onclick="confirmDeleteWord('<%= words[count]._id %>')">
                                             <i class="fa-solid fa-trash"></i> 
                                         </button>
+                                        
                                     <% } %>
                                 </div>
                             </div>
@@ -69,6 +70,22 @@
     .card-number {
         color: white;
     }
+    /* Custom styling for the buttons */
+.custom-btn {
+    background-color: #0f4c75;
+    color: black;
+    border-color: #0f4c75;
+}
+
+/* Adjust hover and active states for better feedback */
+.custom-btn:hover,
+.custom-btn:focus,
+.custom-btn:active {
+    background-color: #092236;
+    border-color: #092236;
+    color: #ffffff;
+}
+
 </style>
 
 <script>
