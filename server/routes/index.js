@@ -36,4 +36,11 @@ router.get('/about', function(req, res, next) {
   });
 });
 
+router.get('/contact', function(req, res, next) {
+  res.render('partials/contact', { 
+    title: 'Contact me' , 
+    displayName: req.user ? req.user.displayName:''
+  });
+});
+
 module.exports = router;
