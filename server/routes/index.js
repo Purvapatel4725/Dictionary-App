@@ -28,7 +28,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-
 /* GET About page. */
 router.get('/about', function(req, res, next) {
   res.render('partials/about', { 
