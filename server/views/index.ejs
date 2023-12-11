@@ -2,18 +2,19 @@
 <% include partials/main_nav.ejs %>
 
 <div class="container-fluid d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #000; color: #0f4c75;">
-    <div class="text-center border-white rounded p-5" style="border: 2px solid #0f4c75;"> <!-- Changed class to 'rounded' for curved edges -->
-        <i class="fas fa-book fa-7x fa-bounce mb-5 text-white" style="color: #0f4c75 !important;"></i> <!-- Changed icon to a book icon -->
+    <div class="text-center border p-5 rounded-lg" style="border-color: #0f4c75;">
         <% if(displayName) { %>
-            <h1 class="mb-3">Welcome, <%= displayName %>!</h1>
+            <i class="fas fa-book-open fa-bounce fa-7x mb-4 text-#0f4c75"></i>
+            <h1 class="display-4 mb-3">Welcome, <%= displayName %>!</h1>
             <p class="lead mb-4">Expand Your Vocabulary!</p>
-            <a href="/dictionary/wordList" class="btn btn-primary btn-sm rounded-pill px-5 py-3" style="background-color: #0f4c75; color: #000; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Explore Words</a>
+            <a href="/dictionary/wordList" class="btn btn-lg btn-light rounded-pill px-5 py-3" style="background-color: black;color: #0f4c75; text-transform: uppercase; font-weight: bold;">Explore Words</a>
         <% } else { %>
-            <h1 class="mb-3">Welcome to WordVault</h1>
+            <i class="fas fa-book fa-bounce fa-7x mb-4 text-#0f4c75"></i>
+            <h1 class="display-4 mb-3">Welcome to WordVault</h1>
             <p class="lead mb-4">Expand Your Vocab!</p>
-            <a href="/dictionary/wordList" class="btn btn-primary btn-sm rounded-pill px-5 py-3 mb-3" style="background-color: #0f4c75; color: #000; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">View Words</a>
+            <a href="/dictionary/wordList" class="btn btn-lg btn-light rounded-pill px-5 py-3 mb-3" style="background-color:black; color: #0f4c75; text-transform: uppercase; font-weight: bold;">View Words</a>
             <p>OR</p>
-            <a href="/login" class="btn btn-outline-primary btn-sm rounded-pill px-5 py-3 ml-3 mb-3" style="border-color: #0f4c75; color: #0f4c75; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Log In</a>
+            <a href="/login" class="btn btn-lg btn-outline-light rounded-pill px-5 py-3 mb-3" style="border-color: #0f4c75; color: #0f4c75; text-transform: uppercase; font-weight: bold;">Log In</a>
         <% } %>
     </div>
 </div>
@@ -22,13 +23,15 @@
 <% include partials/footer.ejs %>
 
 <style>
-    .container-fluid {
+    body {
         font-family: 'Cinzel Decorative', sans-serif;
+        margin: 0;
     }
-    .border-white {
-        border: 2px solid #0f4c75 !important; /* Changed border color */
+    .border {
+        border-width: 4px;
+        border-radius: 30px;
     }
-    .rounded {
-        border-radius: 20px; /* curved edges for the square */
+    .rounded-lg {
+        border-radius: 30px;
     }
 </style>
