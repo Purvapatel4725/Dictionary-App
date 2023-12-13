@@ -5,7 +5,24 @@
     <div class="row">
         <div class="offset-md-1 col-md-10 text-center">
             <h1 class="animated-heading" style="margin-top: 30px; color: #0f4c75;"><i class="fa-solid fa-d fa-bounce"></i><i class="fa-solid fa-i"></i><i class="fa-solid fa-c"></i><i class="fa-solid fa-t"></i><i class="fa-solid fa-i"></i><i class="fa-solid fa-o fa-bounce"></i><i class="fa-solid fa-n"></i><i class="fa-solid fa-a"></i><i class="fa-solid fa-r"></i><i class="fa-solid fa-y"></i> <i class="fa-solid fa-w"></i><i class="fa-solid fa-o fa-bounce"></i><i class="fa-solid fa-r"></i><i class="fa-solid fa-d fa-bounce"></i><i class="fa-solid fa-s"></i></h1>
-            <div class="mb-4"></div>
+            <div class="mb-4"></div>             
+             
+             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" class="mb-4">
+                <input type="text" id="searchInput" placeholder="Search..."
+                    style="padding: 8px 12px; font-size: 16px; border: 1px solid #0fc475; border-radius: 20px; margin-bottom: 10px;"
+                    onkeydown="if (event.key === 'Enter') searchWords()">
+                <div style="display: flex;">
+                    <button onclick="searchWords()"
+                        style="background-color: #0f4c75; color: #fff; border: 1px solid #0f4c75; border-radius: 5px; padding: 8px 12px; cursor: pointer; transition: all 0.3s ease-in-out; margin-right: 5px;">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search
+                    </button>
+                    <button onclick="clearSearch()"
+                        style="background-color: #dc3545; color: #fff; border: 1px solid #dc3545; border-radius: 5px; padding: 8px 12px; cursor: pointer; transition: all 0.3s ease-in-out;">
+                        <i class="fa-solid fa-xmark"></i> Cancel
+                    </button>
+                </div>
+            </div>
+            
 
             <% if(typeof displayName === 'string' && displayName) { %>
                 <div class="text-center mt-4 mb-3">
@@ -15,9 +32,11 @@
                 </div>
             <% } %>
 
-             <!-- Display the count of cards -->
-             <p style="color: #fff;">Number of Cards: <%= words.length %></p>
-             
+            
+            <!-- Display the count of cards -->
+            <p style="color: #fff;">Number of Cards: <%= words.length %></p>
+
+
             <div class="row">
                 <% for(let count=0; count < words.length; count++) { %>
                     <div class="col-md-6">
@@ -88,6 +107,33 @@
 </style>
 
 <script>
+    function searchWords() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.getElementsByClassName('card');
+
+    let found = false;
+
+    for (let i = 0; i < cards.length; i++) {
+        const word = cards[i].getElementsByClassName('card-title')[0].innerText.toLowerCase();
+        const card = cards[i];
+
+        if (word.includes(searchTerm)) {
+            card.style.display = 'block';
+            if (!found) {
+                found = true;
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        } else {
+            card.style.display = 'none';
+        }
+    }
+}
+function clearSearch() {
+    document.getElementById('searchInput').value = ''; // Clear the search input
+    searchWords(); // Trigger the search function to reset display
+}
+
+
     function confirmDeleteWord(wordId) {
         if (confirm("Are you sure you want to delete this word?")) {
             // If confirmed, redirect to the delete route with the word's ID
