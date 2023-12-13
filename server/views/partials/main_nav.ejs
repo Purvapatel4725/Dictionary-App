@@ -25,6 +25,15 @@
           </a>
         </li>
         <li class="nav-item">
+          <% if(title=="Dictionary" ) { %>
+            <a class="nav-link active hoverable" href="/dictionary/flashList" style="color: #0f4c75;">
+          <% } else { %>
+            <a class="nav-link hoverable" href="/dictionary/flashList" style="color: #0f4c75;">
+          <% } %>
+          <i class="fa-solid fa-book" style="color: #0f4c75;"></i> Flashcards
+          </a>
+        </li>
+        <li class="nav-item">
           <% if(title=="Contact" ) { %>
             <a class="nav-link active hoverable" href="/contact" style="color: #0f4c75;">
           <% } else { %>
@@ -42,7 +51,6 @@
           <i class="fa-solid fa-address-card" style="color: #0f4c75;"></i> About 
           </a>
         </li>
-
         <% if(typeof displayName=='string' && displayName) { %>
           <li class="nav-item">
             <a href="/logout" class="nav-link hoverable" style="color: #0f4c75;"><i class="fa-solid fa-right-from-bracket" style="color: #0f4c75;"></i> Logout</a>

@@ -7,6 +7,7 @@ let logger = require('morgan');
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let dictionaryRoutes = require('../routes/dictionaryRoutes');
+let flashcardRoutes = require('../routes/flashcardRoutes')
 let app = express();
 
 let session = require('express-session');
@@ -65,7 +66,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/dictionary', dictionaryRoutes);
-
+app.use('/dictionary', flashcardRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
