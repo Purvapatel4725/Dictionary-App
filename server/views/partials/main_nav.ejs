@@ -111,8 +111,10 @@
     height: 10px;
     width: 90%;
     opacity: 0;
-    background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
-    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+    /*background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%); {If you want that line use this}
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%); {If you want that line use this}*/ 
+    background: -webkit-radial-gradient(center, ellipse, white);
+    background: radial-gradient(ellipse at center, white);
     transition-duration: 0.3s;
     transition-property: transform, opacity;
   }
