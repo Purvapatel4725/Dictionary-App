@@ -7,6 +7,24 @@
             <h1 class="animated-heading" style="margin-top: 30px; color: #0f4c75;"><i class="fa-solid fa-f fa-bounce"></i><i class="fa-solid fa-l"></i><i class="fa-solid fa-a"></i><i class="fa-solid fa-s"></i><i class="fa-solid fa-h"></i><i class="fa-solid fa-c fa-bounce"></i><i class="fa-solid fa-a"></i><i class="fa-solid fa-r"></i><i class="fa-solid fa-d"></i><i class="fa-solid fa-s fa-bounce"></i></h1>
             <div class="mb-4"></div>
 
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" class="mb-4">
+                <input type="text" id="searchInput" placeholder="Search..."
+                    style="padding: 8px 20px; font-size: 16px; border: 1px solid #0fc475; border-radius: 20px; margin-bottom: 10px; width: 300px;"
+                    onkeydown="if (event.key === 'Enter') searchWords()">
+                <div style="display: flex;">
+                    <a href="#" onclick="searchWords()"
+                        class="btn btn-outline-light btn-lg rounded-pill"
+                        style="background-color: #0f4c75; border-color: #0f4c75; transition: all 0.3s ease-in-out; display: inline-flex; align-items: center; padding: 8px 12px; color: #fff; border-radius: 5px; cursor: pointer; text-decoration: none; margin-right: 5px;">
+                        <i class="fa-solid fa-magnifying-glass" style="margin-right: 10px; color: #fff;"></i> Search
+                    </a>
+                    <a href="#" onclick="clearSearch()"
+                        class="btn btn-outline-light btn-lg rounded-pill"
+                        style="background-color: #dc3545; border-color: #dc3545; transition: all 0.3s ease-in-out; display: inline-flex; align-items: center; padding: 8px 12px; color: #fff; border-radius: 5px; cursor: pointer; text-decoration: none;">
+                        <i class="fa-solid fa-xmark" style="margin-right: 10px; color: #fff;"></i> Cancel
+                    </a>
+                </div>
+            </div>
+
             <% if(typeof displayName === 'string' && displayName) { %>
                 <div class="text-center mt-4 mb-3">
                     <a href="/dictionary/addWord" class="btn btn-outline-light btn-lg rounded-pill" role="button" style="background-color: #0f4c75; border-color: #0f4c75; transition: all 0.3s ease-in-out;">
@@ -81,4 +99,31 @@
             toggleCardDetails(<%= count %>);
         });
     <% } %>
+</script>
+<script>
+    function searchWords() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.getElementsByClassName('card');
+
+    let found = false;
+
+    for (let i = 0; i < cards.length; i++) {
+        const word = cards[i].getElementsByClassName('card-title')[0].innerText.toLowerCase();
+        const card = cards[i];
+
+        if (word.includes(searchTerm)) {
+            card.style.display = 'block';
+            if (!found) {
+                found = true;
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        } else {
+            card.style.display = 'none';
+        }
+    }
+}
+function clearSearch() {
+    document.getElementById('searchInput').value = ''; // Clear the search input
+    searchWords(); // Trigger the search function to reset display
+}
 </script>
